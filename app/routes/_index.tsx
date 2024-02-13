@@ -5,9 +5,8 @@ import * as Switch from "@radix-ui/react-switch";
 import type { ActionFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Form, redirect } from "@remix-run/react";
 import { Check } from "lucide-react";
-import { useState } from "react";
 import { z } from "zod";
-import Toastify from "~/components/toast";
+import { useToast } from "~/components/toast";
 
 export const meta: MetaFunction = () => {
   return [
@@ -30,11 +29,11 @@ export async function action({ request }: ActionFunctionArgs) {
   }
 
   console.log(submission);
-  return redirect("/dashboard");
+  return redirect("/");
 }
 
 export default function Index() {
-  const [toast, setToast] = useState<{ message: string }>();
+  const { showToast } = useToast();
   const [form, fields] = useForm({
     shouldValidate: "onBlur",
     onValidate({ formData }) {
@@ -73,12 +72,14 @@ export default function Index() {
           <button
             className="rounded bg-white/90 px-3 py-1 font-bold text-gray-900"
             type="submit"
+            onClick={() => {
+              showToast("User saved!");
+            }}
           >
             save
           </button>
         </div>
       </Form>
-      <Toastify toast={toast} setToast={setToast} />
     </>
   );
 }

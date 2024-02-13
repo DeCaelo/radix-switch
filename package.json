@@ -13,7 +13,9 @@
   "dependencies": {
     "@conform-to/react": "^1.0.1",
     "@conform-to/zod": "^1.0.1",
+    "@epic-web/cachified": "^5.1.2",
     "@heroicons/react": "^2.1.1",
+    "@paralleldrive/cuid2": "^2.2.2",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toast": "^1.1.5",
