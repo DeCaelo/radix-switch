@@ -9,8 +9,8 @@ import { ToastProvider } from "./components/toast";
 import "./tailwind.css";
 
 import { LoaderFunctionArgs, json } from "@remix-run/node";
-import { combineHeaders } from "./utils/misc";
 
+import { combineHeaders } from "./utils/misc";
 import { makeTimings } from "./utils/timing.server";
 import { getToast } from "./utils/toast.server";
 
